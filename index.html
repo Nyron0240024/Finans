@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -7,36 +8,15 @@
 
   <title>Финансы</title>
 
- 
   <link rel="icon" type="image/png" href="./icon.png">
   <link rel="apple-touch-icon" href="./icon.png">
   <meta name="apple-mobile-web-app-title" content="Финансы">
 
-
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  
-<section id="authPanel" class="section" style="max-width:480px;margin:30px auto;padding:20px;">
-  <h2>Финансы — вход</h2>
-  <p>Войди в свой аккаунт или создай новый.</p>
 
-  <form id="authForm" class="form">
-    <label for="authEmail">Электронная почта</label>
-    <input id="authEmail" type="email" autocomplete="email" required>
-
-    <label for="authPassword">Пароль</label>
-    <input id="authPassword" type="password" autocomplete="current-password" minlength="6" required>
-
-    <button class="primary" type="submit">Войти</button>
-    <button class="secondary" type="button" id="registerButton">Создать аккаунт</button>
-  </form>
-
-  <p id="authMessage" role="status"></p>
-  <button id="logoutButton" class="secondary" type="button" hidden>Выйти</button>
-</section>
-
-<main class="app" hidden>
+  <main class="app">
     <header class="header">
       <div class="brand">
         <div class="logo" aria-hidden="true">₴</div>
@@ -101,7 +81,9 @@
           aria-describedby="transactionAmountHelp"
           required
         >
-        <small id="transactionAmountHelp">Вводи только целую сумму в сумах.</small>
+        <small id="transactionAmountHelp">
+          Вводи только целую сумму в сумах.
+        </small>
 
         <label for="transactionCategory">Категория</label>
         <select id="transactionCategory" name="transactionCategory" required>
@@ -116,7 +98,12 @@
         </select>
 
         <label for="transactionDate">Дата операции</label>
-        <input id="transactionDate" name="transactionDate" type="date" required>
+        <input
+          id="transactionDate"
+          name="transactionDate"
+          type="date"
+          required
+        >
 
         <label for="transactionNote">Комментарий (необязательно)</label>
         <input
@@ -127,7 +114,9 @@
           placeholder="Например, утренняя смена"
         >
 
-        <button type="submit" class="primary">Сохранить операцию</button>
+        <button type="submit" class="primary">
+          Сохранить операцию
+        </button>
       </form>
     </section>
 
@@ -151,11 +140,20 @@
     <section class="balance" aria-labelledby="progressHeading">
       <p id="progressHeading">Общий прогресс</p>
       <h2 id="totalCurrent">0 сум</h2>
+
       <div class="total-line">
         <span>Из <span id="totalTarget">0 сум</span></span>
         <span id="totalPercent">0%</span>
       </div>
-      <div class="progress" role="progressbar" aria-label="Общий прогресс по планам" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+
+      <div
+        class="progress"
+        role="progressbar"
+        aria-label="Общий прогресс по планам"
+        aria-valuemin="0"
+        aria-valuemax="100"
+        aria-valuenow="0"
+      >
         <div id="totalBar" class="progress-fill"></div>
       </div>
     </section>
@@ -166,12 +164,22 @@
           <h2 id="plansHeading">Мои планы</h2>
           <p>Двигайся к своим целям</p>
         </div>
-        <button id="showForm" type="button" class="add-button">+ Добавить</button>
+
+        <button id="showForm" type="button" class="add-button">
+          + Добавить
+        </button>
       </div>
 
       <form id="planForm" class="form hidden" autocomplete="off">
         <label for="planName">Название плана</label>
-        <input id="planName" name="planName" type="text" placeholder="Например, Кредит" required maxlength="60">
+        <input
+          id="planName"
+          name="planName"
+          type="text"
+          placeholder="Например, Кредит"
+          required
+          maxlength="60"
+        >
 
         <label for="planType">Тип плана</label>
         <select id="planType" name="planType" required>
@@ -182,24 +190,57 @@
         </select>
 
         <label for="planTarget">Общая сумма (сум)</label>
-        <input id="planTarget" name="planTarget" type="number" min="1" step="1" inputmode="numeric" placeholder="500000" required>
+        <input
+          id="planTarget"
+          name="planTarget"
+          type="number"
+          min="1"
+          step="1"
+          inputmode="numeric"
+          placeholder="500000"
+          required
+        >
 
         <label for="planCurrent">Уже выплачено или накоплено</label>
-        <input id="planCurrent" name="planCurrent" type="number" min="0" step="1" inputmode="numeric" value="0" required>
+        <input
+          id="planCurrent"
+          name="planCurrent"
+          type="number"
+          min="0"
+          step="1"
+          inputmode="numeric"
+          value="0"
+          required
+        >
 
         <label for="planStart">Дата начала</label>
-        <input id="planStart" name="planStart" type="date" required>
+        <input
+          id="planStart"
+          name="planStart"
+          type="date"
+          required
+        >
 
         <label for="planDeadline">Крайний срок</label>
-        <input id="planDeadline" name="planDeadline" type="date" required>
+        <input
+          id="planDeadline"
+          name="planDeadline"
+          type="date"
+          required
+        >
 
         <div class="form-buttons">
-          <button type="submit" class="primary">Создать план</button>
-          <button type="button" id="cancelForm" class="secondary">Отмена</button>
+          <button type="submit" class="primary">
+            Создать план
+          </button>
+          <button type="button" id="cancelForm" class="secondary">
+            Отмена
+          </button>
         </div>
       </form>
 
       <div id="plans" class="plans"></div>
+
       <div id="emptyState" class="empty">
         <div class="empty-icon" aria-hidden="true">＋</div>
         <h3>Пока нет планов</h3>
@@ -210,11 +251,6 @@
     <footer>Твои деньги. Твои цели. Твой контроль.</footer>
   </main>
 
-  
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="supabase-config.js"></script>
-<script src="auth.js"></script>
-<script src="app.js"></script>
-
+  <script src="app.js"></script>
 </body>
 </html>
