@@ -47,7 +47,11 @@ logoutButton.addEventListener("click", async () => {
 
 supabaseClient.auth.onAuthStateChange((event, session) => {
   logoutButton.hidden = !session;
+
+  authForm.hidden = !!session;
   authMessage.textContent = session
-    ? "Вход выполнен: " + session.user.email
+    ? "Вы вошли: " + session.user.email
     : "Войди в аккаунт или зарегистрируйся.";
+
+  document.querySelector(".app").hidden = !session;
 });
