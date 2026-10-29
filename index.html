@@ -16,6 +16,26 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  
+<section id="authPanel" class="section" style="max-width:480px;margin:30px auto;padding:20px;">
+  <h2>Финансы — вход</h2>
+  <p>Войди в свой аккаунт или создай новый.</p>
+
+  <form id="authForm" class="form">
+    <label for="authEmail">Электронная почта</label>
+    <input id="authEmail" type="email" autocomplete="email" required>
+
+    <label for="authPassword">Пароль</label>
+    <input id="authPassword" type="password" autocomplete="current-password" minlength="6" required>
+
+    <button class="primary" type="submit">Войти</button>
+    <button class="secondary" type="button" id="registerButton">Создать аккаунт</button>
+  </form>
+
+  <p id="authMessage" role="status"></p>
+  <button id="logoutButton" class="secondary" type="button" hidden>Выйти</button>
+</section>
+
   <main class="app">
     <header class="header">
       <div class="brand">
