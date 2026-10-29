@@ -1,0 +1,179 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101713">
+  <title>Мои деньги</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="header">
+      <div class="brand">
+        <div class="logo">₴</div>
+        <div>
+          <h1>Мои деньги</h1>
+          <p>Твои финансы под контролем</p>
+        </div>
+      </div>
+      <span class="offline">● Офлайн</span>
+    </header>
+
+<section class="money-dashboard">
+  <div class="section-heading">
+    <div>
+      <h2>Мои финансы</h2>
+      <p>Твои реальные доходы и расходы</p>
+    </div>
+  </div>
+
+  <div class="money-card main-money-card">
+    <p>Текущий баланс</p>
+    <h2 id="realBalance">0 сум</h2>
+    <span>Доходы минус расходы</span>
+  </div>
+
+  <div class="money-grid">
+    <div class="money-card">
+      <p>Доходы за месяц</p>
+      <h3 id="monthIncome">0 сум</h3>
+    </div>
+    <div class="money-card">
+      <p>Расходы за месяц</p>
+      <h3 id="monthExpense">0 сум</h3>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-heading">
+    <div>
+      <h2>Новая операция</h2>
+      <p>Запиши поступление или трату</p>
+    </div>
+  </div>
+
+  <form id="transactionForm" class="form">
+    <label for="transactionType">Тип операции</label>
+    <select id="transactionType">
+      <option value="income">Доход</option>
+      <option value="expense">Расход</option>
+    </select>
+
+    <label for="transactionAmount">Сумма (сум)</label>
+   
+<input id="transactionAmount" type="text"
+  inputmode="numeric" autocomplete="off"
+  placeholder="150 000" required>
+
+
+    <label for="transactionCategory">Категория</label>
+    <select id="transactionCategory">
+      <option value="work">Работа / заработок</option>
+      <option value="fuel">Топливо</option>
+      <option value="food">Продукты</option>
+      <option value="home">Дом и счета</option>
+      <option value="shopping">Покупки</option>
+      <option value="transport">Транспорт</option>
+      <option value="debt">Выплата долга</option>
+      <option value="other">Другое</option>
+    </select>
+
+    <label for="transactionDate">Дата операции</label>
+    <input id="transactionDate" type="date" required>
+
+    <label for="transactionNote">Комментарий (необязательно)</label>
+    <input id="transactionNote" type="text"
+      maxlength="100" placeholder="Например, утренняя смена">
+
+    <button type="submit" class="primary">Сохранить операцию</button>
+  </form>
+</section>
+
+<section class="section">
+  <div class="section-heading">
+    <div>
+      <h2>История операций</h2>
+      <p>Все твои поступления и траты</p>
+    </div>
+  </div>
+
+  <div id="transactions" class="plans"></div>
+
+  <div id="emptyTransactions" class="empty">
+    <div class="empty-icon">↔</div>
+    <h3>Операций пока нет</h3>
+    <p>Добавь первый доход или расход.</p>
+  </div>
+</section>
+
+    <section class="balance">
+      <p>Общий прогресс</p>
+      <h2 id="totalCurrent">0 сум</h2>
+      <div class="total-line">
+        <span>Из <span id="totalTarget">0 сум</span></span>
+        <span id="totalPercent">0%</span>
+      </div>
+      <div class="progress">
+        <div id="totalBar" class="progress-fill"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <div>
+          <h2>Мои планы</h2>
+          <p>Двигайся к своим целям</p>
+        </div>
+        <button id="showForm" class="add-button">+ Добавить</button>
+      </div>
+
+      <form id="planForm" class="form hidden">
+        <label for="planName">Название плана</label>
+        <input id="planName" placeholder="Например, Кредит" required maxlength="60">
+
+        <label for="planType">Тип плана</label>
+        <select id="planType">
+          <option value="credit">Кредит / долг</option>
+          <option value="saving">Накопление</option>
+          <option value="income">Цель по доходу</option>
+          <option value="other">Другая цель</option>
+        </select>
+
+        <label for="planTarget">Общая сумма (сум)</label>
+        <input id="planTarget" type="number" min="1" step="1"
+          placeholder="500000" required>
+
+        <label for="planCurrent">Уже выплачено или накоплено</label>
+        <input id="planCurrent" type="number" min="0" step="1"
+          value="0" required>
+          
+<label for="planStart">Дата начала</label>
+<input id="planStart" type="date" required>
+
+<label for="planDeadline">Крайний срок</label>
+<input id="planDeadline" type="date" required>
+
+
+        <div class="form-buttons">
+          <button type="submit" class="primary">Создать план</button>
+          <button type="button" id="cancelForm" class="secondary">Отмена</button>
+        </div>
+      </form>
+
+      <div id="plans" class="plans"></div>
+      <div id="emptyState" class="empty">
+        <div class="empty-icon">＋</div>
+        <h3>Пока нет планов</h3>
+        <p>Добавь первый кредит или цель накопления.</p>
+      </div>
+    </section>
+
+    <footer>Твои деньги. Твои цели. Твой контроль.</footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,549 @@
+:root {
+  color-scheme: dark;
+
+  --bg: #101713;
+  --card: #19231d;
+  --card-light: #202d25;
+  --green: #70e39a;
+  --text: #f2f7f3;
+  --muted: #91a398;
+  --border: #2a3930;
+  --red: #ff8585;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 3px;
+}
+
+.app {
+  width: min(100% - 32px, 700px);
+  margin: 0 auto;
+  padding: 30px 0 24px;
+}
+
+/* Шапка */
+
+.header,
+.brand,
+.section-heading,
+.total-line,
+.plan-top,
+.plan-bottom,
+.form-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.brand {
+  justify-content: flex-start;
+}
+
+.logo {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  background: var(--green);
+  color: #102018;
+  border-radius: 15px;
+  font-size: 27px;
+  font-weight: 800;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: 22px;
+}
+
+.header p,
+.section-heading p {
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+.offline {
+  font-size: 11px;
+  color: var(--green);
+  background: #1b3023;
+  padding: 8px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+/* Общий прогресс */
+
+.balance {
+  margin-top: 28px;
+  padding: 24px;
+  background: linear-gradient(140deg, #254d34, #193323);
+  border: 1px solid #326443;
+  border-radius: 24px;
+}
+
+.balance > p {
+  color: #c3e5cd;
+  font-size: 14px;
+}
+
+.balance h2 {
+  font-size: clamp(27px, 7vw, 38px);
+  margin: 14px 0 20px;
+  overflow-wrap: anywhere;
+}
+
+.total-line {
+  color: #c3e5cd;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.progress {
+  height: 8px;
+  overflow: hidden;
+  background: #344c3b;
+  border-radius: 20px;
+}
+
+.progress-fill {
+  width: 0;
+  height: 100%;
+  background: var(--green);
+  border-radius: inherit;
+  transition: width 0.25s ease;
+}
+
+/* Разделы */
+
+.section {
+  margin-top: 32px;
+}
+
+.section-heading {
+  margin-bottom: 20px;
+}
+
+.section-heading h2 {
+  font-size: 21px;
+}
+
+/* Кнопки */
+
+.add-button,
+.primary {
+  border: 0;
+  background: var(--green);
+  color: #102018;
+  border-radius: 12px;
+  padding: 12px 15px;
+  font-weight: 700;
+  transition: filter 0.2s ease, transform 0.2s ease;
+}
+
+.add-button:hover,
+.primary:hover {
+  filter: brightness(1.08);
+}
+
+.add-button:active,
+.primary:active,
+.small-button:active {
+  transform: scale(0.98);
+}
+
+.secondary {
+  background: var(--card-light);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Формы */
+
+.form {
+  display: grid;
+  gap: 10px;
+  padding: 18px;
+  margin-bottom: 18px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+}
+
+.form label {
+  color: #c2d1c6;
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+.form input,
+.form select {
+  width: 100%;
+  min-height: 46px;
+  padding: 12px;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  outline: none;
+  min-width: 0;
+}
+
+.form input:focus,
+.form select:focus {
+  border-color: var(--green);
+}
+
+.form input::placeholder {
+  color: #718277;
+}
+
+.form small {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.form-buttons {
+  margin-top: 8px;
+}
+
+.form-buttons button {
+  flex: 1;
+  min-height: 44px;
+}
+
+/* Карточки планов и операций */
+
+.plans {
+  display: grid;
+  gap: 14px;
+}
+
+.plan {
+  min-width: 0;
+  padding: 19px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 19px;
+}
+
+.plan-top {
+  align-items: flex-start;
+}
+
+.plan-name {
+  font-size: 17px;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.plan-type {
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 6px;
+}
+
+.percent {
+  color: var(--green);
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.plan-amount {
+  font-size: 14px;
+  margin: 19px 0 12px;
+  overflow-wrap: anywhere;
+}
+
+.plan-amount strong {
+  color: var(--green);
+}
+
+.plan-bottom {
+  margin-top: 15px;
+  flex-wrap: wrap;
+}
+
+.remaining {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.small-button {
+  padding: 9px 11px;
+  background: var(--card-light);
+  color: var(--green);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-size: 12px;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.small-button:hover {
+  background: #293b30;
+}
+
+.delete-button {
+  color: var(--red);
+}
+
+/* Даты и сроки планов */
+
+.deadline-info {
+  display: grid;
+  gap: 9px;
+  margin-top: 17px;
+  padding: 13px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  color: var(--muted);
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+
+.deadline-info strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.deadline-count {
+  color: var(--green);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.daily-needed {
+  padding-top: 9px;
+  border-top: 1px solid var(--border);
+}
+
+/* Финансовая сводка */
+
+.money-dashboard {
+  margin-top: 28px;
+}
+
+.money-card {
+  padding: 18px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  min-width: 0;
+}
+
+.main-money-card {
+  background: linear-gradient(140deg, #254d34, #193323);
+  border-color: #326443;
+  margin-bottom: 12px;
+}
+
+.money-card p {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.main-money-card p,
+.main-money-card span {
+  color: #c3e5cd;
+}
+
+.main-money-card h2 {
+  font-size: clamp(25px, 6vw, 34px);
+  margin: 12px 0;
+  overflow-wrap: anywhere;
+}
+
+.main-money-card span {
+  font-size: 12px;
+}
+
+.money-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.money-card h3 {
+  font-size: clamp(14px, 3.5vw, 19px);
+  margin-top: 12px;
+  overflow-wrap: anywhere;
+}
+
+/* Цвета доходов и расходов */
+
+#realBalance,
+#monthIncome,
+.transaction-income {
+  color: var(--green);
+  font-weight: 800;
+}
+
+#monthExpense,
+.transaction-expense {
+  color: var(--red);
+  font-weight: 800;
+}
+
+.transaction-note {
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 5px;
+  overflow-wrap: anywhere;
+}
+
+/* Пустые разделы */
+
+.empty {
+  text-align: center;
+  padding: 38px 15px;
+  border: 1px dashed var(--border);
+  border-radius: 18px;
+}
+
+.empty-icon {
+  font-size: 34px;
+  color: var(--green);
+  margin-bottom: 12px;
+}
+
+.empty h3 {
+  font-size: 16px;
+}
+
+.empty p {
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 8px;
+}
+
+/* Подвал */
+
+footer {
+  text-align: center;
+  color: #617368;
+  font-size: 12px;
+  margin-top: 38px;
+}
+
+/* Телефоны */
+
+@media (max-width: 420px) {
+  .app {
+    width: calc(100% - 24px);
+    padding-top: 20px;
+  }
+
+  .balance {
+    padding: 19px;
+  }
+
+  .add-button {
+    padding: 11px;
+    font-size: 12px;
+  }
+
+  .plan {
+    padding: 15px;
+  }
+
+  .actions {
+    width: 100%;
+  }
+
+  .actions .small-button {
+    flex: 1;
+  }
+}
+
+@media (max-width: 350px) {
+  .money-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .header {
+    align-items: flex-start;
+  }
+
+  .logo {
+    width: 42px;
+    height: 42px;
+  }
+
+  h1 {
+    font-size: 19px;
+  }
+
+  .offline {
+    padding: 7px;
+    font-size: 10px;
+  }
+
+  .form {
+    padding: 14px;
+  }
+}
+
+/* Уменьшенная анимация для пользователей,
+   отключивших движение в настройках устройства */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
