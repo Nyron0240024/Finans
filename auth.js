@@ -49,6 +49,7 @@ supabaseClient.auth.onAuthStateChange((event, session) => {
   logoutButton.hidden = !session;
 
   authForm.hidden = !!session;
+  document.getElementById("authPanel").hidden = !!session;
   authMessage.textContent = session
     ? "Вы вошли: " + session.user.email
     : "Войди в аккаунт или зарегистрируйся.";
